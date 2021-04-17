@@ -63,3 +63,12 @@ export function listHistory(query) {
     params: query
   })
 }
+
+// 审核为商户
+export function transferOrg(data) {
+  return request({
+    // url: '/history/list',
+    method: 'post',
+    data
+  })
+}

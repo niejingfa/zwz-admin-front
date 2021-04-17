@@ -71,6 +71,8 @@
       <el-table-column align="center" label="市场售价" prop="counterPrice" />
 
       <el-table-column align="center" label="当前价格" prop="retailPrice" />
+      <el-table-column align="center" label="当前价格" prop="wholesalePrice" />
+      <el-table-column align="center" label="当前价格" prop="commission" />
 
       <el-table-column align="center" label="是否新品" prop="isNew">
         <template slot-scope="scope">

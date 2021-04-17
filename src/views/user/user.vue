@@ -46,6 +46,7 @@
       <el-table-column align="center" label="操作" width="250" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button type="primary" size="mini" @click="handleDetail(scope.row)">详情</el-button>
+          <el-button v-if="scope.row.isOrg == 1" type="primary" size="mini" @click="handleTransferOrg(scope.row)">审核为商户</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -165,6 +166,21 @@ export default {
     handleDetail(row) {
       this.userDetail = row
       this.userDialogVisible = true
+    },
+    handleTransferOrg(row) {
+      transferOrg(row)
+        .then((response) => {
+          this.$notify.success({
+            title: '成功',
+            message: '升级商户成功'
+          })
+        })
+        .catch(response => {
+          this.$notify.error({
+            title: '失败',
+            message: response.data.errmsg
+          })
+        })
     },
     handleUserUpdate(){
      updateUser(this.userDetail)
